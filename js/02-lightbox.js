@@ -5,9 +5,9 @@ import { galleryItems } from './gallery-items.js';
 const gallery = document.querySelector(".gallery")
 
 const addImages = galleryItems
-.map((item) => `<a class="gallery__item" href="${item.original}">
+.map((item) => `<li><a class="gallery__item" href="${item.original}">
   <img class="gallery__image" src="${item.preview}" alt="${item.description}" />
-</a>`)
+</a></li>`)
     .join('')
 gallery.insertAdjacentHTML("beforeend", addImages)
 const lightbox = new SimpleLightbox('.gallery a', { /* options */ });
