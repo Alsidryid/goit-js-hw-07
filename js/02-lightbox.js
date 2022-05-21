@@ -10,7 +10,7 @@ const addImages = galleryItems
 </a></li>`)
     .join('')
 gallery.insertAdjacentHTML("beforeend", addImages)
-const lightbox = new SimpleLightbox('.gallery a', { /* options */ });
+
 
 
 
@@ -19,7 +19,7 @@ const lightbox = new SimpleLightbox('.gallery a', { /* options */ });
 const openModal = (e) => {
     e.preventDefault()
     if(e.target.nodeName ==="IMG"){
-      const lightbox = new SimpleLightbox('.gallery a', {captionsData: "alt", captionDelay:250 });
+      const lightbox = new SimpleLightbox('.gallery a', {captionsData: "alt", captionDelay: 250,  });
     }
   
 }
