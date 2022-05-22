@@ -27,23 +27,17 @@ const openModal = (e) => {
  
         basicLightbox.create(`
 		<img width="100%"  src="${e.target.dataset.source}">
-	`).show()
+	`,{onShow,},).show()
     }
   
 }
 gallery.addEventListener("click", openModal);
 
-
-
-
-function closeModal() {
-    const modalWindow = document.querySelector('.basicLightbox');
-    modalWindow.remove();    
+function onShow() {	window.addEventListener("keydown", onEscPress);}
+function onClose() {	window.removeEventListener("keydown", onEscPress);}
+function onEscPress(event) {
+    if (event.code === "Escape") {
+        openModal.close();
+        onClose();
+    }
 }
-
-function closeModalOnEscKeyClick(evt) {
-  if (evt.keyCode === 27) {
-      closeModal();  
-  }
-}
-window.addEventListener('keydown', closeModalOnEscKeyClick);

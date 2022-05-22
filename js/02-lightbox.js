@@ -16,13 +16,9 @@ gallery.insertAdjacentHTML("beforeend", addImages)
 
 
 
-const openModal = (e) => {
-    e.preventDefault()
-    if(e.target.nodeName ==="IMG"){
+
       const lightbox = new SimpleLightbox('.gallery a', {captionsData: "alt", captionDelay: 250,  });
-    }
-  
-}
+
 
 
 gallery.addEventListener("click", openModal)
