@@ -19,25 +19,30 @@ const addImages = galleryItems
     .join('')
 gallery.insertAdjacentHTML("beforeend", addImages)
 
-
+let modal;
 const openModal = (e) => {
 
     e.preventDefault()
     if(e.target.dataset.source){
  
-        basicLightbox.create(`
+     modal =   basicLightbox.create(`
 		<img width="100%"  src="${e.target.dataset.source}">
-	`,{onShow,},).show()
+	`, { onShow, })
+       modal.show()
     }
   
 }
 gallery.addEventListener("click", openModal);
 
-function onShow() {	window.addEventListener("keydown", onEscPress);}
-function onClose() {	window.removeEventListener("keydown", onEscPress);}
+function onShow() {
+  window.addEventListener("keydown", onEscPress);
+}
+function onClose() {
+  window.removeEventListener("keydown", onEscPress);
+}
 function onEscPress(event) {
     if (event.code === "Escape") {
-        openModal.close();
+        modal.close();
         onClose();
     }
 }
